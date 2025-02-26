@@ -18,10 +18,10 @@ export default function Recommender() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
-  const handleSearchMovie = async () => {
+  const handleSearchMovie = async (query: string) => {
     // This will now trigger the hook to fetch recommendations based on searchQuery
-    if (searchQuery) {
-      const recommendations = await getRecommendations(searchQuery);
+    if (query) {
+      const recommendations = await getRecommendations(query);
       setMovies(recommendations); // Ensure recommendations is an array
     }
   };

@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "./components.module.css";
 import StyledButton from "./StyledButton";
 type NewSearchProps = {
-  handleSearchMovie: () => void;
+  handleSearchMovie: (query: string) => void;
   setIsModalOpen: (isModalOpen: boolean) => void;
 };
 
@@ -14,7 +14,7 @@ export default function NewSearch({
 
   const handleOnClick = () => {
     if (searchQuery.length > 0) {
-      handleSearchMovie();
+      handleSearchMovie(searchQuery);
       setIsModalOpen(false);
     }
   };
