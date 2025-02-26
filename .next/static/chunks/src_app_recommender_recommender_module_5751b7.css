@@ -1,0 +1,109 @@
+/* [project]/src/app/recommender/recommender.module.css [app-client] (css) */
+.recommender-module__hAB9yG__page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.recommender-module__hAB9yG__main {
+  flex: 1;
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.recommender-module__hAB9yG__ctas {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.recommender-module__hAB9yG__title {
+  font-size: 3rem;
+  font-weight: bold;
+  background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: #0000;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.recommender-module__hAB9yG__movieGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.recommender-module__hAB9yG__movieCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+  padding: 1.5rem;
+  background: #ffffff0d;
+  border-radius: 12px;
+  transition: transform .3s, background-color .3s;
+  cursor: pointer;
+  border: 1px solid #ffffff1a;
+}
+
+.recommender-module__hAB9yG__movieCard:hover {
+  transform: translateY(-5px);
+  background: #ffffff14;
+}
+
+.recommender-module__hAB9yG__movieTitle {
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-align: center;
+  margin-top: .5rem;
+  color: var(--gray-rgb);
+}
+
+.recommender-module__hAB9yG__movieYear {
+  font-size: .875rem;
+  color: #fff9;
+}
+
+.recommender-module__hAB9yG__buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.recommender-module__hAB9yG__searchContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.recommender-module__hAB9yG__footer {
+  padding: 2rem;
+  text-align: center;
+  border-top: 1px solid #ffffff1a;
+}
+
+@media (width <= 768px) {
+  .recommender-module__hAB9yG__main {
+    padding: 2rem 1rem;
+  }
+
+  .recommender-module__hAB9yG__title {
+    font-size: 2.5rem;
+  }
+
+  .recommender-module__hAB9yG__movieGrid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .recommender-module__hAB9yG__movieCard {
+    padding: 1rem;
+  }
+}
+
+
+/*# sourceMappingURL=src_app_recommender_recommender_module_5751b7.css.map*/

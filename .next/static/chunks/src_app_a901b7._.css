@@ -1,0 +1,193 @@
+/* [project]/src/app/recommender/recommender.module.css [app-client] (css) */
+.recommender-module__hAB9yG__page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.recommender-module__hAB9yG__main {
+  flex: 1;
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.recommender-module__hAB9yG__ctas {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.recommender-module__hAB9yG__title {
+  font-size: 3rem;
+  font-weight: bold;
+  background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: #0000;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.recommender-module__hAB9yG__movieGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.recommender-module__hAB9yG__movieCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+  padding: 1.5rem;
+  background: #ffffff0d;
+  border-radius: 12px;
+  transition: transform .3s, background-color .3s;
+  cursor: pointer;
+  border: 1px solid #ffffff1a;
+}
+
+.recommender-module__hAB9yG__movieCard:hover {
+  transform: translateY(-5px);
+  background: #ffffff14;
+}
+
+.recommender-module__hAB9yG__movieTitle {
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-align: center;
+  margin-top: .5rem;
+  color: var(--gray-rgb);
+}
+
+.recommender-module__hAB9yG__movieYear {
+  font-size: .875rem;
+  color: #fff9;
+}
+
+.recommender-module__hAB9yG__buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.recommender-module__hAB9yG__searchContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.recommender-module__hAB9yG__footer {
+  padding: 2rem;
+  text-align: center;
+  border-top: 1px solid #ffffff1a;
+}
+
+@media (width <= 768px) {
+  .recommender-module__hAB9yG__main {
+    padding: 2rem 1rem;
+  }
+
+  .recommender-module__hAB9yG__title {
+    font-size: 2.5rem;
+  }
+
+  .recommender-module__hAB9yG__movieGrid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .recommender-module__hAB9yG__movieCard {
+    padding: 1rem;
+  }
+}
+
+
+/* [project]/src/app/components/components.module.css [app-client] (css) */
+.components-module__j2KbXq__modalTitle {
+  font-size: 24px;
+  font-weight: bold;
+  background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: #0000;
+  margin-bottom: 16px;
+}
+
+.components-module__j2KbXq__inputField {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  box-shadow: 0 2px 4px #0000001a;
+}
+
+.components-module__j2KbXq__buttonPrimary {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.components-module__j2KbXq__buttonSecondary {
+  background-color: #6c757d;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.components-module__j2KbXq__modal {
+  position: fixed;
+  padding: 0;
+  border: none;
+  background-color: #0000;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+}
+
+.components-module__j2KbXq__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #00000080;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.components-module__j2KbXq__modalContent {
+  background-color: #0a0a0a;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+}
+
+.components-module__j2KbXq__closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.components-module__j2KbXq__newSearch {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
+}
+
+
+/*# sourceMappingURL=src_app_a901b7._.css.map*/
