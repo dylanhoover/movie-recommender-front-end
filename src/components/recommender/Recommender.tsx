@@ -1,15 +1,16 @@
 "use client";
 import { useState } from "react";
-// import Image from "next/image";
+import Image from 'next/image';
 import styles from "../recommender/recommender.module.css";
-import StyledButton from "./StyledButton";
-import Modal from "./Modal";
-import { getRecommendations } from "../lib/recommendations";
-import NewSearch from "./NewSearch";
+import StyledButton from "../StyledButton";
+import Modal from "../Modal";
+import { getRecommendations } from "../../utils/getRecommendations";
+import NewSearch from "../NewSearch";
+import { getPosterImages } from "../../utils/getPosterImages";
 type Movie = {
   id: number;
   title: string;
-  // posterUrl: string;
+  posterUrl: string;
   release_date: string;
 };
 
@@ -19,45 +20,33 @@ export default function Recommender() {
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleSearchMovie = async (query: string) => {
-    // This will now trigger the hook to fetch recommendations based on searchQuery
     if (query) {
-      const recommendations = await getRecommendations(query);
-      setMovies(recommendations); // Ensure recommendations is an array
+        try {
+            const recommendations = await getRecommendations(query);
+            const posterImages = await getPosterImages(recommendations);
+            const moviesWithPosterImages = recommendations.map((movie, index) => ({
+              ...movie,
+              posterUrl: posterImages[index].posterUrl
+            }));
+            setMovies(moviesWithPosterImages);
+        } catch (error: any) {
+            console.error(`Error fetching recommendations: ${error.message}`);
+        }
     }
   };
 
   const handleGetNewRecommendations = async () => {
     if (searchQuery) {
       const recommendations = await getRecommendations(searchQuery);
-      setMovies(recommendations);
+      const posterImages = await getPosterImages(recommendations);
+      const moviesWithPosterImages = recommendations.map((movie, index) => ({
+        ...movie,
+        posterUrl: posterImages[index].posterUrl
+      }));
+      setMovies(moviesWithPosterImages);
+    
     }
-    // Mock data - replace with real API call later
-    // setMovies([
-    //   {
-    //     id: 1,
-    //     title: "The Shawshank Redemption",
-    //     posterUrl:
-    //       "https://image.tmdb.org/t/p/w500/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg",
-    //     year: 1994,
-    //   },
-    //   {
-    //     id: 2,
-    //     title: "The Godfather",
-    //     posterUrl:
-    //       "https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg",
-    //     year: 1972,
-    //   },
-    //   {
-    //     id: 3,
-    //     title: "The Dark Knight",
-    //     posterUrl:
-    //       "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
-    //     year: 2008,
-    //   },
-    // ]);
   };
-
-  console.log(movies);
 
   return (
     <div className={styles.page}>
@@ -69,6 +58,7 @@ export default function Recommender() {
             <>
               <div className={styles.searchContainer}>
                 <input
+                  className={styles.searchInput}
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
@@ -77,7 +67,9 @@ export default function Recommender() {
               <div className={styles.buttonContainer}>
                 <StyledButton
                   variant="primary"
-                  onClick={handleGetNewRecommendations}
+                  onClick={() => {
+                    handleGetNewRecommendations();
+                  }}
                 >
                   Find Movies
                 </StyledButton>
@@ -88,10 +80,9 @@ export default function Recommender() {
               <div className={styles.movieGrid}>
                 {movies.map(
                   (movie) => (
-                    console.log(movie),
                     (
                       <div key={movie.id} className={styles.movieCard}>
-                        {/* <Image
+                        <Image
                       src={movie.posterUrl}
                       alt={`${movie.title} poster`}
                       width={200}
@@ -101,7 +92,7 @@ export default function Recommender() {
                         height: "auto",
                         borderRadius: "8px",
                       }}
-                    /> */}
+                      />
                         <h3 className={styles.movieTitle}>{movie.title}</h3>
                         <span className={styles.movieYear}>
                           {movie.release_date}

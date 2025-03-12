@@ -1,4 +1,4 @@
-import { getRecommendations } from "@/app/lib/recommendations";
+import { getRecommendations } from "@/lib/recommendations";
 // Define the expected structure of the JSON response
 // interface Recommendation {
 //   id: number;
